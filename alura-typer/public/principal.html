@@ -3,32 +3,53 @@
 <head> 
     <meta charset="UFT-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1>Alura Typer</h1>
-    <div>
+    <h1 class="center">Alura Typer</h1>
+    <div class="center">
         <p id="enunciado">Digite o texto abaixo no campo indicado. Você tem 10 segundos para terminar! </p>
-        <p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        
+        <ul class="informacoes center">
+            <li>
+                <i class="small material-icons icones">description</i>
+                <span id="tamanho-frase"> 0</span> palavras
+            </li>
+            <li>
+                <i class="small material-icons icones">import_contacts</i>
+                <span id="tamanho-caracteres"> 0</span> caracteres
+            </li>
+            <li>
+                <i class="small material-icons">query_builder</i>
+                <span id="tempo-digitacao"> 10</span> segundos
+            </li>
+        </ul>
+       
+        
+        <br><br>
+        
+        <textarea class="campo-digitacao" rows="15" cols="70"></textarea>
+
+        <ul class="center">
+            <li>
+                <i class="small material-icons icones">import_contacts</i>
+                <span id="contador-caracteres"> 0</span> caracteres</li>
+            <li>
+                <i class="small material-icons icones">description</i>
+                <span id="contador-palavras"> 0</span> palavras
+            </li>
+        </ul>
+
+        <div class="botoes">
+                <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
+                    <i class="material-icons">restore</i>
+                </a>
+        </div>
+        
     </div>
-
-    <ul class="informacoes">
-        <li><span id="tamanho-frase">0</span> palavras</li>
-        <li><span id="tamanho-caracteres">0</span> caracteres</li>
-    </ul>
-
-    <div>
-            <span id="tempo-digitacao">10</span> segundos
-            <br><br>
-    </div>
-
-    <textarea class="campo-digitacao" rows="15" cols="70"></textarea>
-
-    <ul>
-        <li><span id="contador-caracteres">0</span> caracteres</li>
-        <li><span id="contador-palavras">0</span> palavras</li>
-    </ul>
-
-    <button id="botao-reiniciar">Reiniciar jogo</button>
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
 

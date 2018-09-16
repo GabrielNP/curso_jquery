@@ -1,5 +1,13 @@
 var tempoInicial = $("#tempo-digitacao").text();
 var campo = $(".campo-digitacao");
+var frase = $("frase").text;
+
+campo.on("input",function(){
+    var digitado = campo.val();
+    console.log(frase);
+    console.log(digitado);
+});
+
 
 //$(document).ready(function(){});
 $(function(){
@@ -38,10 +46,13 @@ function inicializaCronometro(){
         var cronometroID = setInterval(function(){
             tempoRestante--;
             $("#tempo-digitacao").text(tempoRestante);       
+            $("#botao-reiniciar").attr("disabled",true)
             if(tempoRestante < 1){
                 campo.attr("disabled", true);   
                 clearInterval(cronometroID);
-            }        
+                $("#botao-reiniciar").attr("disabled",false);
+                campo.toggleClass("campo-desativado");
+            }
         },1000);
     });
 }
@@ -55,5 +66,6 @@ function reiniciaJogo(){
         $("#contador-caracteres").text("0")
         $("#tempo-digitacao").text(tempoInicial);
         inicializaCronometro();
+        campo.toggleClass("campo-desativado")
     });
 }
