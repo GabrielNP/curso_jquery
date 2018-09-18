@@ -13,18 +13,19 @@
         <p id="enunciado">Digite o texto abaixo no campo indicado. Você tem 10 segundos para terminar! </p>
         <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         
-        <ul class="informacoes center">
-            <li>
-                <i class="small material-icons icones">description</i>
-                <span id="tamanho-frase"> 0</span> palavras
-            </li>
+        <ul class="informacoes center">            
             <li>
                 <i class="small material-icons icones">import_contacts</i>
                 <span id="tamanho-caracteres"> 0</span> caracteres
             </li>
             <li>
+                <i class="small material-icons icones">description</i>
+                <span id="tamanho-frase"> 0</span> palavras
+            </li>
+            <br><br>
+            <li>
                 <i class="small material-icons">query_builder</i>
-                <span id="tempo-digitacao"> 10</span> segundos
+                <span id="tempo-digitacao"> 4</span> segundos
             </li>
         </ul>
        
@@ -50,6 +51,29 @@
         </div>
         
     </div>
+
+    <section class="placar">
+        <h3 class="center">Placar</h3>
+        <table class="centered bordered">
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>No. de palavras</th>
+                    <th>No. de caracteres</th>
+                    <th>Tempo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Douglas</td>
+                    <td>10</td>
+                    <td>3</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
 

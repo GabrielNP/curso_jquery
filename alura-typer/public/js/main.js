@@ -1,12 +1,6 @@
 var tempoInicial = $("#tempo-digitacao").text();
 var campo = $(".campo-digitacao");
-var frase = $("frase").text;
-
-campo.on("input",function(){
-    var digitado = campo.val();
-    console.log(frase);
-    console.log(digitado);
-});
+var linha = console.log("linha inserida");
 
 
 //$(document).ready(function(){});
@@ -14,6 +8,7 @@ $(function(){
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro();
+    inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);
 });
 
@@ -52,6 +47,7 @@ function inicializaCronometro(){
                 clearInterval(cronometroID);
                 $("#botao-reiniciar").attr("disabled",false);
                 campo.toggleClass("campo-desativado");
+                inserePlacar();
             }
         },1000);
     });
@@ -67,5 +63,46 @@ function reiniciaJogo(){
         $("#tempo-digitacao").text(tempoInicial);
         inicializaCronometro();
         campo.toggleClass("campo-desativado")
+        campo.removeClass("campo-errado");
+        campo.removeClass("campo-correto");
     });
+}
+
+function inicializaMarcadores(){
+    campo.on("input",function(){
+        var frase = $(".frase").text();
+        var digitado = campo.val();
+        var comparavel = frase.substr(0 , digitado.length);
+        if(digitado == comparavel) {
+            campo.addClass("campo-correto");
+            campo.removeClass("campo-errado");
+        } else {
+            campo.addClass("campo-errado");
+            campo.removeClass("campo-correto");
+        }
+            /*Essa if poderia ser escrita da seguinte forma:
+            var ehCorreto = (digitado == comparavel);
+            campo.toggleClass("borda-verde", ehCorreto);
+            campo.toggleClass("borda-vermelha", !ehCorreto);
+            
+            ou então
+
+            if( frase.startsWith(digitado)) {
+                campo.addClass("borda-verde");
+                } else {
+                campo.addClass("borda-vermelha");
+            }
+            */
+    });
+}
+
+function inserePlacar(){
+    var corpoTabela = $(".placar").find("tbody");
+    var usuario = "gabrielnp";
+    var numPalavras = $("#contador-palavras").text();
+    var linha = "<tr>"+
+                    "<td>"+ usuario + "</td>"+
+                    "<td>"+ numPalavras + "</td>"+
+                "</tr>";
+    corpoTabela.prepend(linha);
 }
