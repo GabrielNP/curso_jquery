@@ -35,8 +35,8 @@ function inicializaContadores(){
 }
 
 function inicializaCronometro(){
-    var tempoRestante = $("#tempo-digitacao").text();
     campo.one("focus", function(){
+        var tempoRestante = $("#tempo-digitacao").text();
         var cronometroID = setInterval(function(){
             tempoRestante--;
             $("#tempo-digitacao").text(tempoRestante);       
@@ -95,3 +95,7 @@ function inicializaMarcadores(){
     });
 }
 
+function atualizaTempoInicial(tempo){
+    tempoInicial = tempo;
+    $("#tempo-digitacao").text(tempo);
+}
