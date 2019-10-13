@@ -1,3 +1,5 @@
+$("#botao-placar").click(mostraPlacar);
+
 function inserePlacar(){
     var corpoTabela = $(".placar").find("tbody");
     var usuario = "gabrielnp";
@@ -14,6 +16,8 @@ function inserePlacar(){
     linha.find(".botao-remover").click(removeLinha);
     
     corpoTabela.append(linha);
+    $(".placar").slideDown(1000);
+    scrollPlacar();
 }
 
 function novaLinha(usuario, palavras, caracteres){
@@ -43,10 +47,33 @@ function novaLinha(usuario, palavras, caracteres){
 
 function removeLinha(){
     event.preventDefault();
-    $(this).parent().parent().remove();
+    var linha = $(this).parent().parent();
+    linha.fadeOut(1000);
+    setTimeout(function(){
+        linha.remove();
+    }, 1000);
+    
 }
 
 $(".botao-remover").click(function(event){
     event.preventDefault();
-    $(this).parent().parent().remove();
+    var linha = $(this).parent().parent();
+    linha.fadeOut(1000);
+    setTimeout(function(){
+        linha.remove();
+    }, 1000);
 })
+
+
+function mostraPlacar(){
+    $(".placar").stop().slideToggle(2000);
+}
+
+/* NOT WORKING */
+function scrollPlacar(){
+    var posicaoPlacar = $(".placar").offset().top; console.log(posicaoPlacar);
+    $("body").animate(
+        {
+            scrollTop: posicaoPlacar+"px"
+        }, 1000);
+}

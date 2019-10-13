@@ -1,8 +1,6 @@
 var tempoInicial = $("#tempo-digitacao").text();
 var campo = $(".campo-digitacao");
 var i = 0;
-// var linha = console.log("linha inserida: ",i++);
-
 
 //$(document).ready(function(){});
 $(function(){
@@ -66,7 +64,6 @@ function reiniciaJogo(){
         campo.toggleClass("campo-desativado")
         campo.removeClass("campo-errado");
         campo.removeClass("campo-correto");
-        console.log("linha inserida: ",i++);
     });
 }
 
