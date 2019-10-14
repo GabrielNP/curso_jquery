@@ -71,7 +71,7 @@ function mostraPlacar(){
 
 /* NOT WORKING */
 function scrollPlacar(){
-    var posicaoPlacar = $(".placar").offset().top; console.log(posicaoPlacar);
+    var posicaoPlacar = $(".placar").offset().top;
     $("body").animate(
         {
             scrollTop: posicaoPlacar+"px"

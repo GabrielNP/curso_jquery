@@ -10,9 +10,9 @@
 <body>
     <h1 class="center">gTyper</h1>
     <div class="center">
-        <p id="enunciado">Digite o texto abaixo no campo indicado. Você tem 10 segundos para terminar! </p>
-        <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="erro">Ops! Ocorreu um erro! Recarregue a página e tente novamente.</p>
+        <p id="enunciado">Digite corretamente o texto abaixo no campo indicado antes do tempo acabar! </p>
+        <p class="frase center card-panel grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="erro"><a onclick="M.toast()" class="btn red">Ops! Ocorreu um erro! Recarregue a página e tente novamente.</a></p>
         <div class="center" id="spinner">
             <img src="img/spinner.gif">
         </div>
@@ -21,9 +21,7 @@
         <ul class="informacoes center">            
             <li>
                 <i class="small material-icons icones">import_contacts</i>
-                <span id="tamanho-caracteres"> 0</span> caracteres
-            </li>
-            <li>
+                <span id="tamanho-caracteres"> 0</span> caracteres          
                 <i class="small material-icons icones">description</i>
                 <span id="tamanho-frase"> 0</span> palavras
             </li>
@@ -33,22 +31,17 @@
                 <span id="tempo-digitacao"> 6</span> segundos
             </li>
         </ul>
-       
-        
         <br><br>
-        
         <textarea class="campo-digitacao" rows="15" cols="70"></textarea>
-
         <ul class="center">
             <li>
                 <i class="small material-icons icones">import_contacts</i>
-                <span id="contador-caracteres"> 0</span> caracteres</li>
-            <li>
+                <span id="contador-caracteres"> 0</span> caracteres
+
                 <i class="small material-icons icones">description</i>
                 <span id="contador-palavras"> 0</span> palavras
             </li>
         </ul>
-
         <div class="botoes">
             <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
                 <i class="material-icons">restore</i>
@@ -63,10 +56,11 @@
                 <i class="material-icons">repeat_one</i>
             </a>
             <input type="number" id="frase-id" min="0">
+            <a id="botao-sync" class="btn-floating btn-large waves-effect waves-light purple">
+                <i class="material-icons">swap_vert</i>
+            </a>
+    </div>        
     </div>
-        
-    </div>
-
     <section class="placar">
         <h3 class="center">Placar</h3>
         <table class="centered bordered">
@@ -91,12 +85,10 @@
                 </tr>
             </tbody>
         </table>
-    </section>
-    
+    </section>    
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
     <script src="js/placar.js"></script>
     <script src="js/frases.js"></script>
-
 </body>
 </html>
