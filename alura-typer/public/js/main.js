@@ -9,6 +9,7 @@ $(function(){
     inicializaCronometro();
     inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);
+    atualizaPlacar();
 });
 
 function atualizaTamanhoFrase(){
@@ -54,7 +55,7 @@ function inicializaCronometro(){
 
 function reiniciaJogo(){
     $("#botao-reiniciar").click(function(event){
-        $("#tempo-digitacao").text(10);
+        // $("#tempo-digitacao").text(10);
         campo.attr("disabled",false);
         campo.val("");
         $("#contador-palavras").text("0");
@@ -64,6 +65,7 @@ function reiniciaJogo(){
         campo.toggleClass("campo-desativado")
         campo.removeClass("campo-errado");
         campo.removeClass("campo-correto");
+        console.log("cliquei");
     });
 }
 
