@@ -3,7 +3,7 @@ $("#botao-sync").click(sincronizaPlacar);
 
 function inserePlacar(){
     var corpoTabela = $(".placar").find("tbody");
-    var usuario = "gabrielnp";
+    var usuario = $("#usuarios").val();
     var numPalavras = $("#contador-palavras").text();
     var qtdeCaracteres = $("#contador-caracteres").text();
     var linha = novaLinha(usuario, numPalavras, qtdeCaracteres);
@@ -99,8 +99,16 @@ function sincronizaPlacar(){
             placar: placar
         };
 
-        $.post("http://localhost:3000/placar",dados,function(){
-            console.log("Placar gravado!");
+        $.post("http://localhost:3000/plcar",dados,function(){
+            $(".tooltip").tooltipster("open");
+        }) /* NOT WORKING .fail().always() */
+        .fail(function(){
+            $(".tolltip").tooltipster("open").tooltipster("content","Falha ao sincronizar");
+        })
+        .always(function(){
+            setTimeout(function(){
+                $(".tolltip").tooltipster("close");
+            }, 1200);
         });
     });
 }

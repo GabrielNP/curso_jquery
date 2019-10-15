@@ -6,80 +6,93 @@
     <script src="js/jquery.js"></script>
     <link rel="stylesheet" href="css/libs/materialize.min.css">
     <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/libs/selectize.default.css">
+    <link rel="stylesheet" href="css/libs/tooltipster.bundle.min.css" />
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1 class="center">gTyper</h1>
-    <div class="center">
-        <p id="enunciado">Digite corretamente o texto abaixo no campo indicado antes do tempo acabar! </p>
-        <p class="frase center card-panel grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="erro"><a onclick="M.toast()" class="btn red">Ops! Ocorreu um erro! Recarregue a página e tente novamente.</a></p>
-        <div class="center" id="spinner">
-            <img src="img/spinner.gif">
+    <div class="container">
+        <h1 class="center">gTyper</h1>
+        <div class="center">
+            <p id="enunciado">Digite corretamente o texto abaixo no campo indicado antes do tempo acabar! </p>
+            <p class="frase center card-panel grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="erro"><a onclick="M.toast()" class="btn red">Ops! Ocorreu um erro! Recarregue a página e tente novamente.</a></p>
+            <div class="center" id="spinner">
+                <img src="img/spinner.gif">
+            </div>
         </div>
-    </div>
-    <div class="center">
-        <ul class="informacoes center">            
-            <li>
-                <i class="small material-icons icones">import_contacts</i>
-                <span id="tamanho-caracteres"> 0</span> caracteres          
-                <i class="small material-icons icones">description</i>
-                <span id="tamanho-frase"> 0</span> palavras
-            </li>
+        <div class="center">
+            <ul class="informacoes center">            
+                <li>
+                    <i class="small material-icons icones">import_contacts</i>
+                    <span id="tamanho-caracteres"> 0</span> caracteres          
+                    <i class="small material-icons icones">description</i>
+                    <span id="tamanho-frase"> 0</span> palavras
+                </li>
+                <br><br>
+                <li>
+                    <i class="small material-icons">query_builder</i>
+                    <span id="tempo-digitacao"> 6</span> segundos
+                </li>
+            </ul>
             <br><br>
-            <li>
-                <i class="small material-icons">query_builder</i>
-                <span id="tempo-digitacao"> 6</span> segundos
-            </li>
-        </ul>
-        <br><br>
-        <textarea class="campo-digitacao" rows="15" cols="70"></textarea>
-        <ul class="center">
-            <li>
-                <i class="small material-icons icones">import_contacts</i>
-                <span id="contador-caracteres"> 0</span> caracteres
+            <textarea class="campo-digitacao" rows="15" cols="70"></textarea>
+            <ul class="center">
+                <li>
+                    <i class="small material-icons icones">import_contacts</i>
+                    <span id="contador-caracteres"> 0</span> caracteres
 
-                <i class="small material-icons icones">description</i>
-                <span id="contador-palavras"> 0</span> palavras
-            </li>
-        </ul>
-        <div class="botoes">
-            <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
-                <i class="material-icons">restore</i>
-            </a>       
-            <a id="botao-placar" class="btn-floating btn-large waves-effect waves-light green">
-                <i class="material-icons">assignment</i>
-            </a>
-            <a id="botao-frase" class="btn-floating btn-large waves-effect waves-light blue">
-                <i class="material-icons">shuffle</i>
-            </a>
-            <a id="botao-frase-id" class="btn-floating btn-large waves-effect waves-light cyan">
-                <i class="material-icons">repeat_one</i>
-            </a>
-            <input type="number" id="frase-id" min="0">
-            <a id="botao-sync" class="btn-floating btn-large waves-effect waves-light purple">
-                <i class="material-icons">save</i>
-            </a>
-    </div>        
+                    <i class="small material-icons icones">description</i>
+                    <span id="contador-palavras"> 0</span> palavras
+                </li>
+            </ul>
+            <div class="botoes">
+                <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
+                    <i class="material-icons">restore</i>
+                </a>       
+                <a id="botao-placar" class="btn-floating btn-large waves-effect waves-light green">
+                    <i class="material-icons">assignment</i>
+                </a>
+                <a id="botao-frase" class="btn-floating btn-large waves-effect waves-light blue">
+                    <i class="material-icons">shuffle</i>
+                </a>
+                <a id="botao-frase-id" class="btn-floating btn-large waves-effect waves-light cyan">
+                    <i class="material-icons">repeat_one</i>
+                </a>
+                <input type="number" id="frase-id" min="0">
+                <div class="select-usuarios">
+                    <select id="usuarios">
+                        <option value="Tina">Tina</option>
+                        <option value="Tico">Tico</option>
+                        <option value="Tom">Tom</option>
+                    </select>
+                </div>
+                <a id="botao-sync" class="btn-floating btn-large waves-effect waves-light purple tooltip" title="Sincronizado com sucesso">
+                    <i class="material-icons">save</i>
+                </a>
+        </div>        
+        </div>
+        <section class="placar">
+            <h3 class="center">Placar</h3>
+            <table class="centered bordered">
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>No. de palavras</th>
+                        <th>No. de caracteres</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </section>
     </div>
-    <section class="placar">
-        <h3 class="center">Placar</h3>
-        <table class="centered bordered">
-            <thead>
-                <tr>
-                    <th>Usuário</th>
-                    <th>No. de palavras</th>
-                    <th>No. de caracteres</th>
-                    <th>Remover</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </section>
     <script src="js/main.js"></script>
     <script src="js/placar.js"></script>
     <script src="js/frases.js"></script>
+    <script src="js/selectize.js"></script>
+    <script src="js/tooltipster.bundle.min.js"></script>
 </body>
 </html>
